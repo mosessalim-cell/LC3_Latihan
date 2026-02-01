@@ -10,11 +10,12 @@ df = pd.read_csv("data_clean.csv")
 data = df.to_dict(orient="records")
 
 # GET: tampilkan semua data
-@app.get("/data")
+@app.get("/")
 def get_all_data():
     return {
         "total_data": len(data),
         "data": data
     }
+
 # Ngerun API nya, run di terminal
 # uvicorn main:app --reload
