@@ -17,5 +17,19 @@ def get_all_data():
         "data": data
     }
 
+@app.delete("/{item_id}")
+def delete_data(item_id: int):
+    global data
+
+    for i, item in enumerate(data):
+        if item["id"] == item_id:
+            deleted = data.pop(i)
+            return {
+                "message": "Data berhasil dihapus",
+                "deleted_data": deleted
+            }
+
+    raise HTTPException(status_code=404, detail="Data tidak ditemukan")
+
 # Ngerun API nya, run di terminal
 # uvicorn main:app --reload
