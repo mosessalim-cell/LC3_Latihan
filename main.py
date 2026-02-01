@@ -17,7 +17,7 @@ def get_all_data():
         "data": data
     }
 
-@app.delete("/{item_id}")
+@app.delete("/data/{item_id}")
 def delete_data(item_id: int):
     global data
 
